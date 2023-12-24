@@ -1,7 +1,9 @@
-
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  input {
+    @apply autofill:appearance-none autofill:bg-transparent autofill:bg-opacity-0 autofill:bg-none autofill:transition-colors autofill:duration-infinite;
+  }
+}

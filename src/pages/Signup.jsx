@@ -6,20 +6,17 @@ import { useGlobalContext } from "../contexts/context";
 import { useNavigate } from "react-router-dom";
 
 function Signup() {
-  const { isPasswordShown, error, setError, setUser } = useGlobalContext();
+  const navigate = useNavigate();
+  const { error, setError, setUser } = useGlobalContext();
+  const [isPasswordShown, setIsPasswordShown] = useState(false);
   const [signup, setSignup] = useState({
     email: "",
     password: "",
     confirmPassword: "",
   });
-  const navigate = useNavigate();
-
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setSignup((prevsignup) => ({
-      ...prevsignup,
-      [name]: value,
-    }));
+    setSignup((prevsignup) => ({ ...prevsignup, [name]: value }));
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -111,8 +108,7 @@ function Signup() {
             />
             <label htmlFor="password">Password</label>
             <p className="error confirmPasswordError">
-              {" "}
-              {error.confirmPassword}{" "}
+              {error.confirmPassword}
             </p>
           </div>
           <button className="submit">Sign up</button>

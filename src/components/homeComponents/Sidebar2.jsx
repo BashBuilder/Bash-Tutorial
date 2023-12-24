@@ -1,39 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
+import { homeLinks } from "../../Data/link";
 import { Tooltip } from "@mui/material";
 import { SiShopware } from "react-icons/si";
 import { MdOutlineCancel } from "react-icons/md";
-import {
-  AiOutlineCalendar,
-  AiOutlineShoppingCart,
-  AiOutlineAreaChart,
-  AiOutlineBarChart,
-  AiOutlineStock,
-} from "react-icons/ai";
-import {
-  FiShoppingBag,
-  FiEdit,
-  // FiPieChart,
-  // FiBarChart,
-  // FiCreditCard,
-  // FiStar,
-  // FiShoppingCart,
-} from "react-icons/fi";
-import {
-  BsKanban,
-  BsBarChart,
-  // BsBoxSeam,
-  // BsCurrencyDollar,
-  // BsShield,
-  // BsChatLeft,
-} from "react-icons/bs";
-import { BiColorFill } from "react-icons/bi";
-import { IoMdContacts } from "react-icons/io";
-import { RiContactsLine, RiStockLine } from "react-icons/ri";
-// import { MdOutlineSupervisorAccount } from 'react-icons/md';
-// import { HiOutlineRefresh } from 'react-icons/hi';
-// import { TiTick } from 'react-icons/ti';
-import { GiLouvrePyramid } from "react-icons/gi";
-// import { GrLocation } from 'react-icons/gr';
 import { useGlobalContext } from "../../contexts/context";
 
 function Sidebar2() {
@@ -42,42 +11,6 @@ function Sidebar2() {
 
   const handleCloseSidebar = () =>
     activeMenu && screenSize <= 900 && setActiveMenu(false);
-
-  const homeLinks = [
-    {
-      title: "Dashboard",
-      links: [{ name: "dashboard", icon: <FiShoppingBag /> }],
-    },
-    {
-      title: "Pages",
-      links: [
-        { name: "orders", icon: <AiOutlineShoppingCart /> },
-        { name: "employees", icon: <IoMdContacts /> },
-        { name: "customers", icon: <RiContactsLine /> },
-      ],
-    },
-    {
-      title: "Apps",
-      links: [
-        { name: "calendar", icon: <AiOutlineCalendar /> },
-        { name: "kanban", icon: <BsKanban /> },
-        { name: "editor", icon: <FiEdit /> },
-        { name: "color-picker", icon: <BiColorFill /> },
-      ],
-    },
-    {
-      title: "Charts",
-      links: [
-        { name: "line", icon: <AiOutlineStock /> },
-        { name: "area", icon: <AiOutlineAreaChart /> },
-        { name: "bar", icon: <AiOutlineBarChart /> },
-        { name: "financial", icon: <RiStockLine /> },
-        { name: "color-mapping", icon: <BsBarChart /> },
-        { name: "pyramid", icon: <GiLouvrePyramid /> },
-        { name: "stacked", icon: <AiOutlineBarChart /> },
-      ],
-    },
-  ];
   const activeLink =
     " flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2 ";
   const normalLink =

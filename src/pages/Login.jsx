@@ -6,22 +6,18 @@ import { MdOutlineEmail } from "react-icons/md";
 import { useGlobalContext } from "../contexts/context";
 
 function Login() {
-  const { isPasswordShown, error, setError, setUser } = useGlobalContext();
+  const navigate = useNavigate();
+  const { error, setError, setUser } = useGlobalContext();
+  const [isPasswordShown, setIsPasswordShown] = useState(false);
   const [loggedUser, setLoggedUser] = useState({
     email: "",
     password: "",
     isRemebered: false,
   });
-  const navigate = useNavigate();
-
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setLoggedUser((prevUser) => ({
-      ...prevUser,
-      [name]: value,
-    }));
+    setLoggedUser((prevUser) => ({ ...prevUser, [name]: value }));
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError({
@@ -38,17 +34,13 @@ function Login() {
     });
     const data = await response.json();
     if (!response.ok) {
-      setError((prevError) => ({
-        ...prevError,
-        password: data.error,
-      }));
+      setError((prevError) => ({ ...prevError, password: data.error }));
     }
     if (response.ok) {
       localStorage.setItem("user", JSON.stringify(data));
       setUser(data);
       setError({});
       navigate("/");
-      // window.location.reload();
       setLoggedUser({});
     }
   };

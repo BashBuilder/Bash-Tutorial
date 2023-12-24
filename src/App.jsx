@@ -1,4 +1,4 @@
-import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import "./style/App.css";
 import "./style/homeStyles/HomeStyle.css";
 import Homepage from "./pages/Homepage";
@@ -38,10 +38,6 @@ function App() {
     setThemeSettings,
     currentColor,
   } = useGlobalContext();
-
-  // console.log(currentColor);
-  // console.log(currentMode);
-
   return (
     <div className={currentMode === "Dark" ? "dark" : ""}>
       <BrowserRouter>
@@ -69,10 +65,7 @@ function App() {
             </div>
             {/*---------- sidebar section ----------  */}
             {activeMenu ? (
-              <div
-                className="w-72 fixed sidebar2 dark:bg-secondary-dark-bg 
-                   bg-white"
-              >
+              <div className="w-72 fixed sidebar2 dark:bg-secondary-dark-bg bg-white">
                 <Sidebar2 />
               </div>
             ) : (

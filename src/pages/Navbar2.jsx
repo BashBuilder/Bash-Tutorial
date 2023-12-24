@@ -6,7 +6,6 @@ import { RiNotification3Line } from "react-icons/ri";
 import { useGlobalContext } from "../contexts/context";
 import Tooltip from "@mui/material/Tooltip";
 import { BiLogOut } from "react-icons/bi";
-import { useNavigate } from "react-router-dom";
 
 // import avatar from '../data/avatar.jpg';
 
@@ -39,16 +38,12 @@ function Navbar2() {
     currentColor,
     // user,
   } = useGlobalContext();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
     window.addEventListener("resize", handleResize);
-    handleResize;
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
   useEffect(() => {
     setActiveMenu(!(screenSize <= 900));
   }, [screenSize]);
@@ -56,7 +51,6 @@ function Navbar2() {
   const handleLogout = () => {
     localStorage.removeItem("user");
     window.location.reload();
-    // navigate("/");
   };
 
   return (
@@ -69,7 +63,6 @@ function Navbar2() {
           icon={<AiOutlineMenu />}
         />
       </div>
-
       <div className="flex">
         <NavButton
           title="Cart"

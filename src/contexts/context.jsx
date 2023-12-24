@@ -27,7 +27,6 @@ const AppProvider = ({ children }) => {
     confirmPassword: "",
   });
   const [isLoading, setIsLoading] = useState(false);
-
   // Functions --------------------------------------------------------
   const handleClick = (clicked) =>
     setIsClicked({ ...initialState, [clicked]: true });
@@ -44,7 +43,6 @@ const AppProvider = ({ children }) => {
     localStorage.removeItem("user");
     window.location.reload();
   };
-  //Handling the states on first load
   useEffect(() => {
     setIsLoading(false);
     // setCurrentMode(localStorage.getItem("schoolTheme"));
