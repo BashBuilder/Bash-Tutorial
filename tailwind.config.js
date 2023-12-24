@@ -7,7 +7,10 @@ export default {
       backgroundImage: {
         "home-bg": "url('./assets/background.jpg')",
         "logo-bg": "url('./assets/logo.png')",
-        "hero-pattern": "url('https://i.ibb.co/MkvLDfb/Rectangle-4389.png')",
+        "hero-pattern-2":
+          "url('https://i.pinimg.com/564x/08/5f/3c/085f3c0b8e4ea5640c51a1c73ca879b0.jpg')",
+        "hero-pattern":
+          "url('https://i.pinimg.com/564x/85/a7/cb/85a7cb8c7dfda19128a376ea6a3a2337.jpg')",
       },
       animation: {
         "spin-slow": "spin 15s linear .1",
